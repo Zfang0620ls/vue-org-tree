@@ -20,9 +20,9 @@
   label-className    |  node label class                       | `Function` \| `String` |     -
   selected-key       |  The key of the selected node           | `String`               |     -
   selected-class-name |  The className of the selected node     | `Function` \| `String` |     -
-    canMove |  是否支持可以拖动     | Boolean|     -
-    zoom | 是否支持可以缩放    | Boolean|     -
-    export | 是否支持可以导出图片    | Boolean|     -
+  canMove              |  是否支持可以拖动     | `Boolean`|     -
+    zoom | 是否支持可以缩放    | `Boolean`|     -
+    export | 是否支持可以导出图片    | `Boolean`|     -
 
 
 
