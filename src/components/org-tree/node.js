@@ -50,12 +50,13 @@ export const renderBtn = (h, data, { props, listeners }) => {
 }
 
 // 创建 label 节点
-export const renderLabel = (h, data, context) => {
+export const renderLabel = (h, data,context) => {
   const { props, listeners } = context
   const label = data[props.props.label]
   const renderContent = props.renderContent
   const clickHandler = listeners['on-node-click']
-
+  const dropHandler = listeners['on-drop']
+  const dropStartHandler = listeners['on-dragstart']
   const childNodes = []
   if (typeof renderContent === 'function') {
     let vnode = renderContent(h, data)
@@ -91,7 +92,13 @@ export const renderLabel = (h, data, context) => {
 
   return h('div', {
     domProps: {
-      className: 'org-tree-node-label'
+      className: 'org-tree-node-label',
+      draggable:props.draggable,
+    },
+    on:{
+      dragstart: () => {
+        // 暂不支持拖拽
+      },
     }
   }, [h('div', {
     domProps: {
@@ -99,7 +106,7 @@ export const renderLabel = (h, data, context) => {
     },
     style: { width: labelWidth },
     on: {
-      click: e => clickHandler && clickHandler(e, data)
+      click: e => clickHandler && clickHandler(e, data),
     }
   }, childNodes)])
 }
