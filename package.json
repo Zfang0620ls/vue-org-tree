@@ -1,10 +1,10 @@
 {
-  "name": "vue2-org-tree",
-  "description": "A simple organization tree chart based on Vue2.x",
-  "version": "1.2.1",
+  "name": "org-tree",
+  "description": "基于vue-org-tree的家谱图组件",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "module": "src/main.js",
-  "author": "steven <986535362@qq.com>",
+  "author": "zhaotianlong",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hukaibaihu/vue-org-tree.git"
+    "url": "https://github.com/zhaotianlong/vue-org-tree.git"
   },
   "bugs": {
-    "url": "https://github.com/hukaibaihu/vue-org-tree/issues"
+    "url": "https://github.com/zhaotianlong/vue-org-tree.git/issues"
   },
-  "homepage": "https://hukaibaihu.github.io/vue-org-tree/",
+  "homepage": "https://github.com/zhaotianlong/vue-org-tree/",
   "dependencies": {
     "html2canvas": "^1.0.0-rc.5"
   },
