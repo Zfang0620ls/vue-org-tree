@@ -27,7 +27,7 @@
     </div>
   </div>
   </div>
-    <div class="org-tree-container export-content"   >
+    <div class="export-content"   >
     <div class="org-tree" :class="{horizontal}" ref="exportContainer">
       <org-tree-node
         :data="data"
