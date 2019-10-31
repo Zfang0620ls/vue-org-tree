@@ -27,8 +27,8 @@
     </div>
   </div>
   </div>
-    <div class="org-tree-container export-content"  ref="exportContainer" >
-    <div class="org-tree" :class="{horizontal}">
+    <div class="org-tree-container export-content"   >
+    <div class="org-tree" :class="{horizontal}" ref="exportContainer">
       <org-tree-node
         :data="data"
         :props="props"
@@ -87,6 +87,7 @@ export default {
     export:Boolean,
     draggable:Boolean,
     canMove:Boolean,
+    isShow:false
   },
   created( ) {
   },
@@ -133,6 +134,7 @@ export default {
   },
   _handleExport(){
     const sourceChart = this.$refs.exportContainer;
+    this.$nextTick(()=>{
     html2canvas(sourceChart, {
       'width': (!this.horizontal ? sourceChart.clientHeight : sourceChart.clientWidth)+200,
       'height': (!this.horizontal ? sourceChart.clientWidth : sourceChart.clientHeight)+200,
@@ -145,6 +147,7 @@ export default {
     })
     .catch((err) => {
       console.error('Failed to export the curent orgchart!', err);
+    })
     })
   },
   handleDrop(e,root, node, data){
@@ -264,11 +267,14 @@ export default {
 
 .export-content {
   position: absolute;
-  z-index: -1;
-  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
-.org-tree__wrap{
-
+.org-tree__wrap,.org-tree-container{
+  width: 100%;
+  height: 100%;
 }
 .org-tree__download-btn__wrap{
   display: flex;
