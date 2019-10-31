@@ -18,7 +18,7 @@
         :label-class-name="labelClassName"
         @on-drop="this.handleDrop"
         @on-dragstart="this.handleDragStart"
-        @on-expand="(e, data) => {$emit('on-expand', e, data)}"
+        @on-expand="this.onExpand"
         @on-node-click="(e, data) => {$emit('on-node-click', e, data)}"
       />
     </div>
@@ -248,7 +248,26 @@ export default {
       document.body.removeEventListener('mousemove', this._onPanning);
       document.body.removeEventListener('touchmove', this._onPanning);
     }
-  }
+  },
+  onExpand(e,data) {
+      if ("expand" in data) {
+        data.expand = !data.expand;
+        if (!data.expand && data.children) {
+          this.collapse(data.children);
+        }
+      } else {
+        this.$set(data, "expand", true);
+      }
+  },
+  collapse(list) {
+      var _this = this;
+      list.forEach(function(child) {
+        if (child.expand) {
+          child.expand = false;
+        }
+        child.children && _this.collapse(child.children);
+      });
+  },
 }
 }
 </script>
