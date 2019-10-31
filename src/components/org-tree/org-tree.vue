@@ -286,7 +286,7 @@ export default {
 
 .export-content {
   position: absolute;
-  height: 0;
+  height: 0 !important;
   top: 0;
   left: 0;
   overflow: hidden;
