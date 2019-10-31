@@ -102,8 +102,8 @@ export default {
       document.getElementById('org-tree__wrap').style.overflow = 'hidden';
       otContainer.addEventListener('mousedown', this._onPanStart.bind(this));
       otContainer.addEventListener('touchstart', this._onPanStart.bind(this));
-      otContainer.addEventListener('mouseup', this._onPanEnd.bind(this));
-      otContainer.addEventListener('touchend', this._onPanEnd.bind(this));
+      document.addEventListener('mouseup', this._onPanEnd.bind(this));
+      document.addEventListener('touchend', this._onPanEnd.bind(this));
     }
   },
   methods:{
@@ -146,7 +146,7 @@ export default {
       downloadBtn.click();
     })
     .catch((err) => {
-      console.error('Failed to export the curent orgchart!', err);
+      console.error('导出图像失败!', err);
     })
     })
   },
