@@ -102,7 +102,7 @@ export default {
       document.getElementById('org-tree__wrap').style.overflow = 'hidden';
       otContainer.addEventListener('mousedown', this._onPanStart.bind(this));
       otContainer.addEventListener('touchstart', this._onPanStart.bind(this));
-      document.addEventListener('mouseup', this._onPanEnd.bind(this));
+      otContainer.addEventListener('mouseup', this._onPanEnd.bind(this));
       document.addEventListener('touchend', this._onPanEnd.bind(this));
     }
   },
